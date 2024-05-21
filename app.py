@@ -8,7 +8,7 @@ from tensorflow.keras.models import load_model
 def load_best_model():
     # Load your model based on the saved format
     # For example, if the best model was a RandomForest model saved using joblib:
-    model = joblib.load('./saved_models/best_model.pkl')
+    model = joblib.load('./saved_model/best_model.pkl')
     return model
 
 # Function to make predictions
