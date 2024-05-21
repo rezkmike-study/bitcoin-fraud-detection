@@ -38,7 +38,9 @@ if uploaded_file is not None:
     st.write(data.head())
 
     # Filter data where class is 3
-    data = data[data['class'] == 2]
+    # data = data[data['class'] == 2]
+    data = data[data['class'].isin([1, 2])]
+
 
     # Ensure the dataset contains the necessary features
     required_columns = model.input_names if hasattr(model, 'input_names') else model.feature_names_in_
