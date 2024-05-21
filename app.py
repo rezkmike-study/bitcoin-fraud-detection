@@ -8,10 +8,7 @@ import os
 
 # Function to load the best model
 def load_best_model():
-    if "best_model.h5" in os.listdir('saved_models'):
-        model = load_model('saved_models/best_model.h5')
-    else:
-        model = joblib.load('saved_models/best_model.pkl')
+    model = joblib.load('./saved_model/best_model.pkl')
     return model
 
 # Function to make predictions
