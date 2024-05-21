@@ -180,5 +180,16 @@ if uploaded_file is not None:
             file_name='predictions.csv',
             mime='text/csv',
         )
+
+        # Plot the results
+        fig, ax = plt.subplots()
+        prediction_counts = data['fraud_prediction'].value_counts().sort_index()
+        prediction_counts.index = ['Licit' if x == 1 else 'Illicit' for x in prediction_counts.index]
+        prediction_counts.plot(kind='bar', ax=ax, color=['green', 'red'])
+        ax.set_title('Fraud Prediction Results')
+        ax.set_xlabel('Prediction')
+        ax.set_ylabel('Count')
+        st.pyplot(fig)
+
     else:
         st.error(f"The uploaded dataset does not contain the required columns: {required_columns}")
