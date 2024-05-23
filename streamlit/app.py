@@ -8,7 +8,13 @@ import os
 
 # Function to load the best model
 def load_best_model():
-    model = joblib.load('./streamlit/saved_model/best_model.pkl')
+    # Ensure the correct model file is loaded
+    model_path = '/streamlit/saved_model/best_model.pkl'
+    if os.path.exists(model_path):
+        model = joblib.load(model_path)
+    else:
+        st.error(f"Model file not found: {model_path}")
+        model = None
     return model
 
 # Function to make predictions
@@ -16,7 +22,7 @@ def make_prediction(model, input_data, model_type):
     if model_type == "Deep Learning":
         input_df = pd.DataFrame(input_data)
         predictions = model.predict(input_df)
-        predictions = (predictions > 0.95).astype(int) + 1  # Adjusting the predicted class values
+        predictions = (predictions > 0.5).astype(int) + 1  # Adjusting the predicted class values
     else:
         predictions = model.predict(input_data)
     return predictions
@@ -31,16 +37,14 @@ st.write('Upload a dataset to check if the transactions are fraudulent (class 3)
 # File uploader
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
-if uploaded_file is not None:
+if uploaded_file is not None and model is not None:
     # Read the uploaded CSV file
     data = pd.read_csv(uploaded_file)
     st.write("Dataset Preview:")
     st.write(data.head())
 
-    # Filter data where class is 3
-    # data = data[data['class'] == 2]
+    # Filter data where class is 1 or 2 (assuming 3 is the fraudulent class)
     data = data[data['class'].isin([1, 2])]
-
 
     # Ensure the dataset contains the necessary features
     required_columns = model.input_names if hasattr(model, 'input_names') else model.feature_names_in_
@@ -62,7 +66,7 @@ if uploaded_file is not None:
         # Provide an option to download the dataset with predictions
         @st.cache_data
         def convert_df(df):
-            # IMPORTANT: Cache the conversion to prevent computation on every rerun
+            # Cache the conversion to prevent computation on every rerun
             return df.to_csv(index=False).encode('utf-8')
 
         csv = convert_df(data)
