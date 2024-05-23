@@ -11,6 +11,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from imblearn.over_sampling import SMOTE
 import xgboost as xgb
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -20,6 +21,7 @@ import joblib
 import pickle
 import base64
 import shutil
+import time
 import stat
 import git
 import os
@@ -27,6 +29,21 @@ import os
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# --------------------------------- Function ---------------------------------
+
+def change_permissions_recursive(directory, dir_mode, file_mode):
+    for root, dirs, files in os.walk(directory):
+        for name in dirs:
+            dir_path = os.path.join(root, name)
+            print(f"Changing permissions for directory: {dir_path}")
+            os.chmod(dir_path, dir_mode)
+        for name in files:
+            file_path = os.path.join(root, name)
+            print(f"Changing permissions for file: {file_path}")
+            os.chmod(file_path, file_mode)
+
+# --------------------------------- DAG Configuration ---------------------------------
 
 default_args = {
     'owner': 'airflow',
@@ -51,6 +68,9 @@ def load_and_prepare_data(**kwargs):
 
     logger.info("Data loaded successfully")
 
+    # Filter the data for class 1 and 2
+    data = data[data['class'].isin([1, 2])]
+    
     # Data Preparation
     X = data.drop(columns=['Unnamed: 0', 'txId', 'class'])
     y = data['class']
@@ -60,7 +80,11 @@ def load_and_prepare_data(**kwargs):
     X_scaled = scaler.fit_transform(X)
 
     # Splitting the data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.8, random_state=42)
+
+    # Apply SMOTE to the training data
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
 
     # LassoCV for dynamic alpha value selection
     lasso_cv = LassoCV(cv=5, random_state=42).fit(X_train, y_train)
@@ -107,7 +131,11 @@ def train_knn(**kwargs):
     X_scaled = scaler.fit_transform(X)
 
     # Splitting the data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.8, random_state=42)
+
+    # Apply SMOTE to the training data
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
 
     if not significant_features or not significant_features:
         logger.error("No significant features available for training.")
@@ -159,7 +187,11 @@ def train_decision_tree(**kwargs):
     X_scaled = scaler.fit_transform(X)
 
     # Splitting the data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.8, random_state=42)
+
+    # Apply SMOTE to the training data
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
 
     # Select only the significant features
     X_significant_train = pd.DataFrame(X_train, columns=X.columns)[significant_features]
@@ -207,7 +239,11 @@ def train_random_forest(**kwargs):
     X_scaled = scaler.fit_transform(X)
 
     # Splitting the data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.8, random_state=42)
+
+    # Apply SMOTE to the training data
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
 
     # Select only the selected features
     X_selected_train = pd.DataFrame(X_train, columns=X.columns)[significant_features]
@@ -256,8 +292,9 @@ def train_xgboost(**kwargs):
     # Splitting the data into training and test sets
     X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.8, random_state=50000)
 
-    # Ensure this variable is defined from the previous step
-    # significant_features = <list_of_significant_features_from_previous_step>
+    # Apply SMOTE to the training data
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
 
     # Select only the significant features
     X_significant_train = pd.DataFrame(X_train, columns=X.columns)[significant_features]
@@ -331,10 +368,10 @@ def compare_and_save_best_model(**kwargs):
 
 def push_to_github(**kwargs):
     ti = kwargs['ti']
-    # model_path = ti.xcom_pull(key='model_path', task_ids='compare_and_save_best_model')
-    model_path = '/opt/airflow/dags/saved_models/best_model.pkl'
+    model_path = ti.xcom_pull(key='model_path', task_ids='compare_and_save_best_model')
     repo_url = 'https://github.com/rezkmike-study/bitcoin-fraud-detection.git'
-    repo_dir = '/tmp/bitcoin-fraud-detection'
+    # repo_url = f'https://{github_token}:x-oauth-basic@github.com/rezkmike-study/bitcoin-fraud-detection.git'
+    repo_dir = '/opt/airflow/datasets/repo'
     
     # Retrieve the GitHub token from Airflow variables
     github_token = Variable.get("GITHUB_TOKEN")
@@ -342,64 +379,71 @@ def push_to_github(**kwargs):
     # Clone the repo with authentication
     if os.path.exists(repo_dir):
         shutil.rmtree(repo_dir)
-        repo = git.Repo.clone_from(f'https://{github_token}:x-oauth-basic@github.com/rezkmike-study/bitcoin-fraud-detection.git', repo_dir)
     
-    # Set permissions for the destination directory
-    os.chmod(model_path, 0o775)
+    repo = git.Repo.clone_from(f'https://{github_token}:x-oauth-basic@github.com/rezkmike-study/bitcoin-fraud-detection.git', repo_dir)
+    time.sleep(5)
 
     # Replace the existing model file with the new one
-    dest_model_path = os.path.join(repo_dir, '/saved_model', '/best_model.pkl')
-    # Ensure source file is readable and destination directory is writable
-    if not os.access(model_path, os.R_OK):
-        os.chmod(model_path, stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
-    if not os.access(dest_model_path, os.W_OK):
-        os.chmod(dest_model_path, stat.S_IWUSR | stat.S_IWGRP | stat.S_IWOTH)
-    if os.path.exists(dest_model_path):
-        # Remove the destination file
-        os.remove(dest_model_path)
-        print(f"Removed file: {dest_model_path}")
-    shutil.copy(model_path, dest_model_path)
+    dest_model_path = os.path.join(repo_dir, 'streamlit', 'saved_model', 'best_model.pkl')
     
-    # Commit and push the changes
-    repo.index.add([dest_model_path])
-    repo.index.commit("Update high accuracy model")
+    dir_permissions = stat.S_IRWXU | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH  # 755
+    file_permissions = stat.S_IRWXU | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH  # 755
+
+    change_permissions_recursive(repo_dir, dir_permissions, file_permissions)
+    change_permissions_recursive('/opt/airflow/dags/saved_models', dir_permissions, file_permissions)
+
+    shutil.copy(model_path, dest_model_path)
+    # os.replace(model_path, dest_model_path)
+
+    # Set Git configuration
+    with repo.config_writer() as git_config:
+        git_config.set_value('user', 'email', 'ci-bot@super.io')
+        git_config.set_value('user', 'name', 'ci-bot')
+    
+    # Ensure the remote set URL is correct
+    repo = git.Repo(repo_dir)
     origin = repo.remote(name='origin')
+    origin.set_url(f'https://{github_token}:x-oauth-basic@github.com/rezkmike-study/bitcoin-fraud-detection.git')
+    repo.git.add(all=True)
+    repo.index.commit('Automated commit from Airflow - Update best model file.')
     origin.push()
+    logging.info("Changes pushed to GitHub successfully.")
+
 
 with dag:
     load_data_task = PythonOperator(
         task_id='load_and_prepare_data',
         python_callable=load_and_prepare_data,
         # op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
-        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/training_data_5000.csv'}
+        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
     )
 
     train_knn_task = PythonOperator(
         task_id='train_knn',
         python_callable=train_knn,
         provide_context=True,
-        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/training_data_5000.csv'}
+        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
     )
 
     train_decision_tree_task = PythonOperator(
         task_id='train_decision_tree',
         python_callable=train_decision_tree,
         provide_context=True,
-        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/training_data_5000.csv'}
+        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
     )
 
     train_random_forest_task = PythonOperator(
         task_id='train_random_forest',
         python_callable=train_random_forest,
         provide_context=True,
-        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/training_data_5000.csv'}
+        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
     )
 
     train_xgboost_task = PythonOperator(
         task_id='train_xgboost',
         python_callable=train_xgboost,
         provide_context=True,
-        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/training_data_5000.csv'}
+        op_kwargs={'file_path': '/opt/airflow/dags/datasets/usable_datasets/out.csv'}
     )
 
     compare_and_save_task = PythonOperator(
