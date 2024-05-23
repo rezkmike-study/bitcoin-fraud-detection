@@ -48,6 +48,7 @@ if uploaded_file is not None and model is not None:
 
     # Ensure the dataset contains the necessary features
     required_columns = model.input_names if hasattr(model, 'input_names') else model.feature_names_in_
+    
     if all(column in data.columns for column in required_columns):
         # Extract the relevant features
         input_data = data[required_columns]
