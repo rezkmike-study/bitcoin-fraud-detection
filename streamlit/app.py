@@ -82,7 +82,7 @@ if uploaded_file is not None and model is not None:
         fig, ax = plt.subplots()
         prediction_counts = data['fraud_prediction'].value_counts().sort_index()
         prediction_counts.index = ['Licit' if x == 1 else 'Illicit' for x in prediction_counts.index]
-        prediction_counts.plot(kind='bar', ax=ax, color=['green', 'red'])
+        prediction_counts.plot(kind='bar', ax=ax, color=['red', 'green'])
         ax.set_title('Fraud Prediction Results')
         ax.set_xlabel('Prediction')
         ax.set_ylabel('Count')
