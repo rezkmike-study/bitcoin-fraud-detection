@@ -8,7 +8,7 @@ import os
 
 # Function to load the best model
 def load_best_model():
-    model = joblib.load('/streamlit/saved_model/best_model.pkl')
+    model = joblib.load('./streamlit/saved_model/best_model.pkl')
     return model
 
 # Function to make predictions
