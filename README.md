@@ -122,9 +122,3 @@ Contributions are welcome! Please submit a pull request or open an issue to disc
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
-
-
----
-
-Feel free to customize the content and structure as per your project's requirements. This README provides a comprehensive overview of the project, its features, and instructions for setting up and running the project.
-
