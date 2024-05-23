@@ -9,7 +9,7 @@ import os
 # Function to load the best model
 def load_best_model():
     # Ensure the correct model file is loaded
-    model_path = '/streamlit/saved_model/best_model.pkl'
+    model_path = './streamlit/saved_model/best_model.pkl'
     if os.path.exists(model_path):
         model = joblib.load(model_path)
     else:
