@@ -8,7 +8,7 @@ import os
 
 # Function to load the best model
 def load_best_model():
-    model = joblib.load('./saved_model/best_model.pkl')
+    model = joblib.load('/streamlit/saved_model/best_model.pkl')
     return model
 
 # Function to make predictions
@@ -16,7 +16,7 @@ def make_prediction(model, input_data, model_type):
     if model_type == "Deep Learning":
         input_df = pd.DataFrame(input_data)
         predictions = model.predict(input_df)
-        predictions = (predictions > 0.5).astype(int) + 1  # Adjusting the predicted class values
+        predictions = (predictions > 0.95).astype(int) + 1  # Adjusting the predicted class values
     else:
         predictions = model.predict(input_data)
     return predictions
