@@ -1,0 +1,22 @@
+[2024-04-28T17:31:01.210+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.explore_data manual__2024-04-28T17:25:01.516564+00:00 [queued]>
+[2024-04-28T17:31:01.215+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.explore_data manual__2024-04-28T17:25:01.516564+00:00 [queued]>
+[2024-04-28T17:31:01.215+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2024-04-28T17:31:01.221+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): explore_data> on 2024-04-28 17:25:01.516564+00:00
+[2024-04-28T17:31:01.224+0000] {standard_task_runner.py:57} INFO - Started process 384 to run task
+[2024-04-28T17:31:01.226+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'bitcoin_transaction_analysis', 'explore_data', 'manual__2024-04-28T17:25:01.516564+00:00', '--job-id', '149', '--raw', '--subdir', 'DAGS_FOLDER/bitcoin.py', '--cfg-path', '/tmp/tmpbkheatyb']
+[2024-04-28T17:31:01.230+0000] {standard_task_runner.py:85} INFO - Job 149: Subtask explore_data
+[2024-04-28T17:31:01.275+0000] {task_command.py:416} INFO - Running <TaskInstance: bitcoin_transaction_analysis.explore_data manual__2024-04-28T17:25:01.516564+00:00 [running]> on host 93821e8db187
+[2024-04-28T17:31:01.562+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='bitcoin_transaction_analysis' AIRFLOW_CTX_TASK_ID='explore_data' AIRFLOW_CTX_EXECUTION_DATE='2024-04-28T17:25:01.516564+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-28T17:25:01.516564+00:00'
+[2024-04-28T17:31:07.094+0000] {logging_mixin.py:154} INFO -                txId
+count  2.037690e+05
+mean   1.711310e+08
+std    1.104655e+08
+min    1.076000e+03
+25%    8.433452e+07
+50%    1.624375e+08
+75%    2.454798e+08
+max    4.032446e+08
+[2024-04-28T17:31:07.112+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-04-28T17:31:07.133+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=bitcoin_transaction_analysis, task_id=explore_data, execution_date=20240428T172501, start_date=20240428T173101, end_date=20240428T173107
+[2024-04-28T17:31:07.211+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-04-28T17:31:07.271+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

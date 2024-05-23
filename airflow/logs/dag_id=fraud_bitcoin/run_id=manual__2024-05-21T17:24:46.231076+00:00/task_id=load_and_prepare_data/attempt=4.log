@@ -1,0 +1,162 @@
+[2024-05-21T17:42:05.866+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T17:42:05.873+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T17:42:05.873+0000] {taskinstance.py:1361} INFO - Starting attempt 4 of 4
+[2024-05-21T17:42:05.894+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): load_and_prepare_data> on 2024-05-21 17:24:46.231076+00:00
+[2024-05-21T17:42:05.934+0000] {standard_task_runner.py:57} INFO - Started process 412 to run task
+[2024-05-21T17:42:05.944+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_bitcoin', 'load_and_prepare_data', 'manual__2024-05-21T17:24:46.231076+00:00', '--job-id', '354', '--raw', '--subdir', 'DAGS_FOLDER/fraud.py', '--cfg-path', '/tmp/tmpkj155cca']
+[2024-05-21T17:42:05.953+0000] {standard_task_runner.py:85} INFO - Job 354: Subtask load_and_prepare_data
+[2024-05-21T17:42:06.038+0000] {task_command.py:416} INFO - Running <TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [running]> on host 66abfe055500
+[2024-05-21T17:42:07.767+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_bitcoin' AIRFLOW_CTX_TASK_ID='load_and_prepare_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T17:24:46.231076+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-21T17:24:46.231076+00:00'
+[2024-05-21T17:42:29.118+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3331689732826817, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:29.291+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4531999696332605, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:29.504+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5138892044831209, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:29.667+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.536654828333667, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:29.836+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5455407621411723, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:30.017+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5498021411440277, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:34.958+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.44414714238746456, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.146+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5587406524064136, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.312+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.605442709271756, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.510+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6217070152238193, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.680+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6264950422355469, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.836+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6196005438482644, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:35.931+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6512246669637989, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:36.090+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.673550229852026, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:41.343+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.30626918800180647, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:41.511+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.40881403775824765, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:41.655+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.46306918649747786, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:41.737+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3484811224641362, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:41.918+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3072811735221421, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:42.066+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.29727005109793936, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:42.203+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.30471032939112774, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.087+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3285753358954935, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.296+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3667350943403562, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.476+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.38248295011931077, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.603+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.388523827931067, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.751+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4817623045230448, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:46.884+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.8549080781290286, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:48.747+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3430514716999369, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:48.911+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5024518565453491, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:49.058+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5859458220149918, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:49.204+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6203067980225114, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:49.362+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5760830130711838, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:49.520+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4304728358245029, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:42:49.635+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.38946086033979554, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T17:45:50.672+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:628: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.149e+00, tolerance: 2.855e-01
+  model = cd_fast.enet_coordinate_descent(
+
+[2024-05-21T17:47:39.250+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:628: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.149e+00, tolerance: 2.855e-01
+  model = cd_fast.enet_coordinate_descent(
+
+[2024-05-21T17:47:46.281+0000] {xcom.py:661} ERROR - Object of type Series is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2024-05-21T17:47:46.318+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 91, in default
+    return serialize(o)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/serialization/serde.py", line 178, in serialize
+    raise TypeError(f"cannot serialize object of type {cls}")
+TypeError: cannot serialize object of type <class 'pandas.core.series.Series'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fraud.py", line 64, in load_and_prepare_data
+    kwargs['ti'].xcom_push(key='y_train', value=y_train)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2479, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 244, in set
+    value = cls.serialize_value(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 659, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 104, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 93, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Series is not JSON serializable
+[2024-05-21T17:47:46.366+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=fraud_bitcoin, task_id=load_and_prepare_data, execution_date=20240521T172446, start_date=20240521T174205, end_date=20240521T174746
+[2024-05-21T17:47:46.406+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 354 for task load_and_prepare_data (Object of type Series is not JSON serializable; 412)
+[2024-05-21T17:47:46.566+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-05-21T17:47:46.708+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

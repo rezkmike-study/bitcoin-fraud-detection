@@ -1,0 +1,14 @@
+[2024-05-20T13:59:37.053+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.obtain_data manual__2024-05-20T13:59:33.203741+00:00 [queued]>
+[2024-05-20T13:59:37.062+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.obtain_data manual__2024-05-20T13:59:33.203741+00:00 [queued]>
+[2024-05-20T13:59:37.062+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2024-05-20T13:59:37.071+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): obtain_data> on 2024-05-20 13:59:33.203741+00:00
+[2024-05-20T13:59:37.079+0000] {standard_task_runner.py:57} INFO - Started process 49461 to run task
+[2024-05-20T13:59:37.084+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'bitcoin_transaction_analysis', 'obtain_data', 'manual__2024-05-20T13:59:33.203741+00:00', '--job-id', '325', '--raw', '--subdir', 'DAGS_FOLDER/.ipynb_checkpoints/bitcoin-checkpoint.py', '--cfg-path', '/tmp/tmp3_xr9caf']
+[2024-05-20T13:59:37.088+0000] {standard_task_runner.py:85} INFO - Job 325: Subtask obtain_data
+[2024-05-20T13:59:37.132+0000] {task_command.py:416} INFO - Running <TaskInstance: bitcoin_transaction_analysis.obtain_data manual__2024-05-20T13:59:33.203741+00:00 [running]> on host 082df2838a30
+[2024-05-20T13:59:37.201+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='bitcoin_transaction_analysis' AIRFLOW_CTX_TASK_ID='obtain_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-20T13:59:33.203741+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-20T13:59:33.203741+00:00'
+[2024-05-20T13:59:42.192+0000] {logging_mixin.py:154} INFO - Data obtained and extracted.
+[2024-05-20T13:59:42.194+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-05-20T13:59:42.211+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=bitcoin_transaction_analysis, task_id=obtain_data, execution_date=20240520T135933, start_date=20240520T135937, end_date=20240520T135942
+[2024-05-20T13:59:42.240+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-05-20T13:59:42.266+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

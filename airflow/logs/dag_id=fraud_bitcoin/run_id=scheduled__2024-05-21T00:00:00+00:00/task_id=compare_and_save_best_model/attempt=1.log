@@ -1,0 +1,22 @@
+[2024-05-22T01:07:50.605+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_bitcoin.compare_and_save_best_model scheduled__2024-05-21T00:00:00+00:00 [queued]>
+[2024-05-22T01:07:50.615+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_bitcoin.compare_and_save_best_model scheduled__2024-05-21T00:00:00+00:00 [queued]>
+[2024-05-22T01:07:50.616+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2024-05-22T01:07:50.629+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): compare_and_save_best_model> on 2024-05-21 00:00:00+00:00
+[2024-05-22T01:07:50.699+0000] {standard_task_runner.py:57} INFO - Started process 4987 to run task
+[2024-05-22T01:07:50.707+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_bitcoin', 'compare_and_save_best_model', 'scheduled__2024-05-21T00:00:00+00:00', '--job-id', '417', '--raw', '--subdir', 'DAGS_FOLDER/fraud.py', '--cfg-path', '/tmp/tmpuxjn98nr']
+[2024-05-22T01:07:50.774+0000] {standard_task_runner.py:85} INFO - Job 417: Subtask compare_and_save_best_model
+[2024-05-22T01:07:50.893+0000] {task_command.py:416} INFO - Running <TaskInstance: fraud_bitcoin.compare_and_save_best_model scheduled__2024-05-21T00:00:00+00:00 [running]> on host 66abfe055500
+[2024-05-22T01:07:51.061+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_bitcoin' AIRFLOW_CTX_TASK_ID='compare_and_save_best_model' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-21T00:00:00+00:00'
+[2024-05-22T01:07:51.133+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fraud.py", line 244, in compare_and_save_best_model
+    best_model_name = max(accuracies, key=accuracies.get)
+TypeError: '>' not supported between instances of 'NoneType' and 'NoneType'
+[2024-05-22T01:07:51.148+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=fraud_bitcoin, task_id=compare_and_save_best_model, execution_date=20240521T000000, start_date=20240522T010750, end_date=20240522T010751
+[2024-05-22T01:07:51.165+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 417 for task compare_and_save_best_model ('>' not supported between instances of 'NoneType' and 'NoneType'; 4987)
+[2024-05-22T01:07:51.205+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-05-22T01:07:51.228+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

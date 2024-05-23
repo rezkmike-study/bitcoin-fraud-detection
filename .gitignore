@@ -1,0 +1,42 @@
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore dependencies
+/node_modules
+/bower_components
+
+# Ignore build artifacts
+/build
+/dist
+
+# Ignore logs and temporary files
+/logs
+/tmp
+
+# Ignore IDE and editor specific files
+/.vscode
+/.idea
+*.sublime-project
+*.sublime-workspace
+
+# Ignore sensitive or environment-specific information
+.env
+.env.local
+.env.*.local
+.env.test
+.env.production
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*~
+*.bak
+
+# Ignore dataset
+*.zip
+*.csv

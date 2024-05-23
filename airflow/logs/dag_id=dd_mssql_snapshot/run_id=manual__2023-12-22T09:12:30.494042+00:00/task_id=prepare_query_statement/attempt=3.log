@@ -1,0 +1,24 @@
+[2023-12-22T09:14:36.806+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dd_mssql_snapshot.prepare_query_statement manual__2023-12-22T09:12:30.494042+00:00 [queued]>
+[2023-12-22T09:14:36.811+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dd_mssql_snapshot.prepare_query_statement manual__2023-12-22T09:12:30.494042+00:00 [queued]>
+[2023-12-22T09:14:36.811+0000] {taskinstance.py:1361} INFO - Starting attempt 3 of 3
+[2023-12-22T09:14:36.817+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): prepare_query_statement> on 2023-12-22 09:12:30.494042+00:00
+[2023-12-22T09:14:36.821+0000] {standard_task_runner.py:57} INFO - Started process 225 to run task
+[2023-12-22T09:14:36.824+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dd_mssql_snapshot', 'prepare_query_statement', 'manual__2023-12-22T09:12:30.494042+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/snapshot-json.py', '--cfg-path', '/tmp/tmp8o_05h3t']
+[2023-12-22T09:14:36.824+0000] {standard_task_runner.py:85} INFO - Job 13: Subtask prepare_query_statement
+[2023-12-22T09:14:36.863+0000] {task_command.py:416} INFO - Running <TaskInstance: dd_mssql_snapshot.prepare_query_statement manual__2023-12-22T09:12:30.494042+00:00 [running]> on host 90263e0a625e
+[2023-12-22T09:14:36.914+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dd_mssql_snapshot' AIRFLOW_CTX_TASK_ID='prepare_query_statement' AIRFLOW_CTX_EXECUTION_DATE='2023-12-22T09:12:30.494042+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-22T09:12:30.494042+00:00'
+[2023-12-22T09:14:36.915+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/snapshot-json.py", line 76, in prepare_query_statement
+    athena_previous_hour = generate_date_strings()
+NameError: name 'generate_date_strings' is not defined
+[2023-12-22T09:14:36.926+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=dd_mssql_snapshot, task_id=prepare_query_statement, execution_date=20231222T091230, start_date=20231222T091436, end_date=20231222T091436
+[2023-12-22T09:14:36.932+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 13 for task prepare_query_statement (name 'generate_date_strings' is not defined; 225)
+[2023-12-22T09:14:36.957+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-22T09:14:36.972+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

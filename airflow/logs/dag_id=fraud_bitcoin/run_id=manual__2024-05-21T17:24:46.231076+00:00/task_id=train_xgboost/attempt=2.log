@@ -1,0 +1,26 @@
+[2024-05-21T18:31:19.240+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_bitcoin.train_xgboost manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T18:31:19.256+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_bitcoin.train_xgboost manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T18:31:19.257+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2024-05-21T18:31:19.269+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): train_xgboost> on 2024-05-21 17:24:46.231076+00:00
+[2024-05-21T18:31:19.327+0000] {standard_task_runner.py:57} INFO - Started process 1354 to run task
+[2024-05-21T18:31:19.341+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_bitcoin', 'train_xgboost', 'manual__2024-05-21T17:24:46.231076+00:00', '--job-id', '369', '--raw', '--subdir', 'DAGS_FOLDER/fraud.py', '--cfg-path', '/tmp/tmprn04exot']
+[2024-05-21T18:31:19.351+0000] {standard_task_runner.py:85} INFO - Job 369: Subtask train_xgboost
+[2024-05-21T18:31:19.466+0000] {task_command.py:416} INFO - Running <TaskInstance: fraud_bitcoin.train_xgboost manual__2024-05-21T17:24:46.231076+00:00 [running]> on host 66abfe055500
+[2024-05-21T18:31:19.705+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_bitcoin' AIRFLOW_CTX_TASK_ID='train_xgboost' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T17:24:46.231076+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-21T17:24:46.231076+00:00'
+[2024-05-21T18:31:30.211+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fraud.py", line 124, in train_xgboost
+    xgb_model.fit(X_significant_train, y_train)
+  File "/home/airflow/.local/lib/python3.8/site-packages/xgboost/core.py", line 730, in inner_f
+    return func(**kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/xgboost/sklearn.py", line 1471, in fit
+    raise ValueError(
+ValueError: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got [1 2]
+[2024-05-21T18:31:30.270+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=fraud_bitcoin, task_id=train_xgboost, execution_date=20240521T172446, start_date=20240521T183119, end_date=20240521T183130
+[2024-05-21T18:31:30.400+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 369 for task train_xgboost (Invalid classes inferred from unique values of `y`.  Expected: [0 1], got [1 2]; 1354)
+[2024-05-21T18:31:30.591+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-05-21T18:31:30.713+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

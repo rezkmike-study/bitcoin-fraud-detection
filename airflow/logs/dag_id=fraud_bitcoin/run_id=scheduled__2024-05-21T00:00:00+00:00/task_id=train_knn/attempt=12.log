@@ -1,0 +1,56 @@
+[2024-05-22T01:11:18.898+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_bitcoin.train_knn scheduled__2024-05-21T00:00:00+00:00 [queued]>
+[2024-05-22T01:11:18.907+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_bitcoin.train_knn scheduled__2024-05-21T00:00:00+00:00 [queued]>
+[2024-05-22T01:11:18.907+0000] {taskinstance.py:1361} INFO - Starting attempt 12 of 13
+[2024-05-22T01:11:18.919+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): train_knn> on 2024-05-21 00:00:00+00:00
+[2024-05-22T01:11:18.962+0000] {standard_task_runner.py:57} INFO - Started process 5054 to run task
+[2024-05-22T01:11:18.968+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_bitcoin', 'train_knn', 'scheduled__2024-05-21T00:00:00+00:00', '--job-id', '419', '--raw', '--subdir', 'DAGS_FOLDER/fraud.py', '--cfg-path', '/tmp/tmp6h9bel47']
+[2024-05-22T01:11:18.974+0000] {standard_task_runner.py:85} INFO - Job 419: Subtask train_knn
+[2024-05-22T01:11:19.093+0000] {task_command.py:416} INFO - Running <TaskInstance: fraud_bitcoin.train_knn scheduled__2024-05-21T00:00:00+00:00 [running]> on host 66abfe055500
+[2024-05-22T01:11:19.262+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_bitcoin' AIRFLOW_CTX_TASK_ID='train_knn' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='12' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-21T00:00:00+00:00'
+[2024-05-22T01:11:19.606+0000] {logging_mixin.py:154} INFO - Columns in X_significant_train: ['Local_feature_2', 'Local_feature_3', 'Local_feature_6', 'Local_feature_7', 'Local_feature_8', 'Local_feature_10', 'Local_feature_13', 'Local_feature_15', 'Local_feature_18', 'Local_feature_20', 'Local_feature_22', 'Local_feature_27', 'Local_feature_28', 'Local_feature_33', 'Local_feature_35', 'Local_feature_36', 'Local_feature_38', 'Local_feature_40', 'Local_feature_42', 'Local_feature_45', 'Local_feature_48', 'Local_feature_49', 'Local_feature_51', 'Local_feature_52', 'Local_feature_53', 'Local_feature_54', 'Local_feature_57', 'Local_feature_59', 'Local_feature_60', 'Local_feature_65', 'Local_feature_66', 'Local_feature_71', 'Local_feature_72', 'Local_feature_75', 'Local_feature_76', 'Local_feature_77', 'Local_feature_81', 'Local_feature_82', 'Local_feature_83', 'Local_feature_87', 'Local_feature_88', 'Local_feature_90', 'Local_feature_93', 'Aggregate_feature_2', 'Aggregate_feature_3', 'Aggregate_feature_5', 'Aggregate_feature_8', 'Aggregate_feature_9', 'Aggregate_feature_12', 'Aggregate_feature_13', 'Aggregate_feature_14', 'Aggregate_feature_17', 'Aggregate_feature_19', 'Aggregate_feature_20', 'Aggregate_feature_21', 'Aggregate_feature_24', 'Aggregate_feature_30', 'Aggregate_feature_31', 'Aggregate_feature_32', 'Aggregate_feature_34', 'Aggregate_feature_35', 'Aggregate_feature_37', 'Aggregate_feature_41', 'Aggregate_feature_44', 'Aggregate_feature_48', 'Aggregate_feature_49', 'Aggregate_feature_50', 'Aggregate_feature_52', 'Aggregate_feature_53', 'Aggregate_feature_56', 'Aggregate_feature_57', 'Aggregate_feature_58', 'Aggregate_feature_60', 'Aggregate_feature_61', 'Aggregate_feature_63', 'Aggregate_feature_65', 'Aggregate_feature_67', 'Aggregate_feature_70', 'Aggregate_feature_71']
+[2024-05-22T01:11:19.607+0000] {logging_mixin.py:154} INFO - Significant features: ['Local_feature_2', 'Local_feature_3', 'Local_feature_6', 'Local_feature_7', 'Local_feature_8', 'Local_feature_10', 'Local_feature_13', 'Local_feature_15', 'Local_feature_18', 'Local_feature_20', 'Local_feature_22', 'Local_feature_27', 'Local_feature_28', 'Local_feature_33', 'Local_feature_35', 'Local_feature_36', 'Local_feature_38', 'Local_feature_40', 'Local_feature_42', 'Local_feature_45', 'Local_feature_48', 'Local_feature_49', 'Local_feature_51', 'Local_feature_52', 'Local_feature_53', 'Local_feature_54', 'Local_feature_57', 'Local_feature_59', 'Local_feature_60', 'Local_feature_65', 'Local_feature_66', 'Local_feature_71', 'Local_feature_72', 'Local_feature_75', 'Local_feature_76', 'Local_feature_77', 'Local_feature_81', 'Local_feature_82', 'Local_feature_83', 'Local_feature_87', 'Local_feature_88', 'Local_feature_90', 'Local_feature_93', 'Aggregate_feature_2', 'Aggregate_feature_3', 'Aggregate_feature_5', 'Aggregate_feature_8', 'Aggregate_feature_9', 'Aggregate_feature_12', 'Aggregate_feature_13', 'Aggregate_feature_14', 'Aggregate_feature_17', 'Aggregate_feature_19', 'Aggregate_feature_20', 'Aggregate_feature_21', 'Aggregate_feature_24', 'Aggregate_feature_30', 'Aggregate_feature_31', 'Aggregate_feature_32', 'Aggregate_feature_34', 'Aggregate_feature_35', 'Aggregate_feature_37', 'Aggregate_feature_41', 'Aggregate_feature_44', 'Aggregate_feature_48', 'Aggregate_feature_49', 'Aggregate_feature_50', 'Aggregate_feature_52', 'Aggregate_feature_53', 'Aggregate_feature_56', 'Aggregate_feature_57', 'Aggregate_feature_58', 'Aggregate_feature_60', 'Aggregate_feature_61', 'Aggregate_feature_63', 'Aggregate_feature_65', 'Aggregate_feature_67', 'Aggregate_feature_70', 'Aggregate_feature_71']
+[2024-05-22T01:11:19.858+0000] {xcom.py:661} ERROR - Object of type KNeighborsClassifier is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2024-05-22T01:11:19.862+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 91, in default
+    return serialize(o)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/serialization/serde.py", line 178, in serialize
+    raise TypeError(f"cannot serialize object of type {cls}")
+TypeError: cannot serialize object of type <class 'sklearn.neighbors._classification.KNeighborsClassifier'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fraud.py", line 132, in train_knn
+    ti.xcom_push(key='knn_model', value=knn_model)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2479, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 244, in set
+    value = cls.serialize_value(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 659, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 104, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 93, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type KNeighborsClassifier is not JSON serializable
+[2024-05-22T01:11:19.898+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=fraud_bitcoin, task_id=train_knn, execution_date=20240521T000000, start_date=20240522T011118, end_date=20240522T011119
+[2024-05-22T01:11:19.916+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 419 for task train_knn (Object of type KNeighborsClassifier is not JSON serializable; 5054)
+[2024-05-22T01:11:19.936+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-05-22T01:11:19.990+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

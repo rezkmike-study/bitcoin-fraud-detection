@@ -1,0 +1,122 @@
+[2024-05-21T18:16:09.327+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T18:16:09.337+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [queued]>
+[2024-05-21T18:16:09.338+0000] {taskinstance.py:1361} INFO - Starting attempt 5 of 6
+[2024-05-21T18:16:09.355+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): load_and_prepare_data> on 2024-05-21 17:24:46.231076+00:00
+[2024-05-21T18:16:09.439+0000] {standard_task_runner.py:57} INFO - Started process 940 to run task
+[2024-05-21T18:16:09.448+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_bitcoin', 'load_and_prepare_data', 'manual__2024-05-21T17:24:46.231076+00:00', '--job-id', '355', '--raw', '--subdir', 'DAGS_FOLDER/fraud.py', '--cfg-path', '/tmp/tmp1hrj2mn2']
+[2024-05-21T18:16:09.454+0000] {standard_task_runner.py:85} INFO - Job 355: Subtask load_and_prepare_data
+[2024-05-21T18:16:09.529+0000] {task_command.py:416} INFO - Running <TaskInstance: fraud_bitcoin.load_and_prepare_data manual__2024-05-21T17:24:46.231076+00:00 [running]> on host 66abfe055500
+[2024-05-21T18:16:11.470+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_bitcoin' AIRFLOW_CTX_TASK_ID='load_and_prepare_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T17:24:46.231076+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-21T17:24:46.231076+00:00'
+[2024-05-21T18:16:44.521+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3331689732826817, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:44.717+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4531999696332605, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:44.779+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5138892044831209, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:44.991+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.536654828333667, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:45.137+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5455407621411723, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:45.234+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5498021411440277, tolerance: 0.22925752636627195
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.098+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.44414714238746456, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.187+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5587406524064136, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.229+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.605442709271756, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.301+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6217070152238193, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.360+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6264950422355469, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.468+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6196005438482644, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.578+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6512246669637989, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:49.705+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.673550229852026, tolerance: 0.22772630488975876
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.308+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.30626918800180647, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.506+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.40881403775824765, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.581+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.46306918649747786, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.656+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3484811224641362, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.746+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3072811735221421, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:51.835+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.29727005109793936, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:52.003+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.30471032939112774, tolerance: 0.22748427996165102
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.146+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3285753358954935, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.247+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3667350943403562, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.361+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.38248295011931077, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.551+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.388523827931067, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.651+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4817623045230448, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:55.712+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.8549080781290286, tolerance: 0.2284519654841564
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:57.443+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.3430514716999369, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:57.600+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5024518565453491, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:57.692+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5859458220149918, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:57.862+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.6203067980225114, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:57.955+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.5760830130711838, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:58.078+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.4304728358245029, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:16:58.200+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:614: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 0.38946086033979554, tolerance: 0.2291779529068429
+  model = cd_fast.enet_coordinate_descent_gram(
+
+[2024-05-21T18:20:42.709+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:628: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.149e+00, tolerance: 2.855e-01
+  model = cd_fast.enet_coordinate_descent(
+
+[2024-05-21T18:23:45.414+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:628: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.149e+00, tolerance: 2.855e-01
+  model = cd_fast.enet_coordinate_descent(
+
+[2024-05-21T18:24:07.512+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-05-21T18:24:07.621+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=fraud_bitcoin, task_id=load_and_prepare_data, execution_date=20240521T172446, start_date=20240521T181609, end_date=20240521T182407
+[2024-05-21T18:24:07.828+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-05-21T18:24:07.933+0000] {dagrun.py:743} ERROR - Failed to get task for ti <TaskInstance: fraud_bitcoin.download_dataset manual__2024-05-21T17:24:46.231076+00:00 [success]>. Marking it as removed.
+[2024-05-21T18:24:08.027+0000] {taskinstance.py:2778} INFO - 5 downstream tasks scheduled from follow-on schedule check

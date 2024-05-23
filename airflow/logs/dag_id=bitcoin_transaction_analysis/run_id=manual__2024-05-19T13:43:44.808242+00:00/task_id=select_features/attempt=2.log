@@ -1,0 +1,31 @@
+[2024-05-19T13:48:48.591+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.select_features manual__2024-05-19T13:43:44.808242+00:00 [queued]>
+[2024-05-19T13:48:48.598+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.select_features manual__2024-05-19T13:43:44.808242+00:00 [queued]>
+[2024-05-19T13:48:48.599+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2024-05-19T13:48:48.611+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): select_features> on 2024-05-19 13:43:44.808242+00:00
+[2024-05-19T13:48:48.619+0000] {standard_task_runner.py:57} INFO - Started process 38304 to run task
+[2024-05-19T13:48:48.623+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'bitcoin_transaction_analysis', 'select_features', 'manual__2024-05-19T13:43:44.808242+00:00', '--job-id', '318', '--raw', '--subdir', 'DAGS_FOLDER/bitcoin.py', '--cfg-path', '/tmp/tmpqosz0ccq']
+[2024-05-19T13:48:48.628+0000] {standard_task_runner.py:85} INFO - Job 318: Subtask select_features
+[2024-05-19T13:48:48.677+0000] {task_command.py:416} INFO - Running <TaskInstance: bitcoin_transaction_analysis.select_features manual__2024-05-19T13:43:44.808242+00:00 [running]> on host 082df2838a30
+[2024-05-19T13:48:48.755+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='bitcoin_transaction_analysis' AIRFLOW_CTX_TASK_ID='select_features' AIRFLOW_CTX_EXECUTION_DATE='2024-05-19T13:43:44.808242+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-19T13:43:44.808242+00:00'
+[2024-05-19T13:48:55.948+0000] {logging_mixin.py:154} INFO - Datasets split into training and prediction sets.
+[2024-05-19T13:48:55.986+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/bitcoin.py", line 138, in select_features
+    lasso_cv.fit(X, y)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py", line 1551, in fit
+    X, y = self._validate_data(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sklearn/base.py", line 617, in _validate_data
+    X = check_array(X, input_name="X", **check_X_params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sklearn/utils/validation.py", line 967, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 168)) while a minimum of 1 is required by LassoCV.
+[2024-05-19T13:48:56.018+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=bitcoin_transaction_analysis, task_id=select_features, execution_date=20240519T134344, start_date=20240519T134848, end_date=20240519T134856
+[2024-05-19T13:48:56.064+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 318 for task select_features (Found array with 0 sample(s) (shape=(0, 168)) while a minimum of 1 is required by LassoCV.; 38304)
+[2024-05-19T13:48:56.123+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-05-19T13:48:56.157+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,19 @@
+[2024-05-08T00:08:30.155+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.scrub_data scheduled__2024-05-07T00:00:00+00:00 [queued]>
+[2024-05-08T00:08:30.162+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bitcoin_transaction_analysis.scrub_data scheduled__2024-05-07T00:00:00+00:00 [queued]>
+[2024-05-08T00:08:30.163+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2024-05-08T00:08:30.171+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): scrub_data> on 2024-05-07 00:00:00+00:00
+[2024-05-08T00:08:30.182+0000] {standard_task_runner.py:57} INFO - Started process 17782 to run task
+[2024-05-08T00:08:30.185+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'bitcoin_transaction_analysis', 'scrub_data', 'scheduled__2024-05-07T00:00:00+00:00', '--job-id', '253', '--raw', '--subdir', 'DAGS_FOLDER/bitcoin.py', '--cfg-path', '/tmp/tmpeocz4m21']
+[2024-05-08T00:08:30.190+0000] {standard_task_runner.py:85} INFO - Job 253: Subtask scrub_data
+[2024-05-08T00:08:30.268+0000] {task_command.py:416} INFO - Running <TaskInstance: bitcoin_transaction_analysis.scrub_data scheduled__2024-05-07T00:00:00+00:00 [running]> on host c967b8493ef9
+[2024-05-08T00:08:30.356+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='bitcoin_transaction_analysis' AIRFLOW_CTX_TASK_ID='scrub_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-07T00:00:00+00:00'
+[2024-05-08T00:21:10.308+0000] {logging_mixin.py:154} INFO - Data cleaned and merged.
+[2024-05-08T00:25:10.895+0000] {logging_mixin.py:154} INFO - Data cleaned.
+[2024-05-08T00:25:11.166+0000] {logging_mixin.py:154} INFO -     Dataset          Shape
+0   Classes    (203769, 2)
+1     Edges    (234355, 2)
+2  Features  (203769, 167)
+[2024-05-08T00:25:11.182+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-05-08T00:25:11.250+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=bitcoin_transaction_analysis, task_id=scrub_data, execution_date=20240507T000000, start_date=20240508T000830, end_date=20240508T002511
+[2024-05-08T00:25:11.364+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-05-08T00:25:11.403+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
