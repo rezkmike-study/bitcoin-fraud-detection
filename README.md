@@ -1,4 +1,4 @@
-# ML Project - Bitcoin Fraud Detection (WQD7007)
+# ML Project - Bitcoin Fraud Detection
 
 This project aims to build a robust Bitcoin fraud detection system using various machine learning models. The models are trained to classify transactions as fraudulent or non-fraudulent based on a set of features derived from transaction data. The best model is selected and deployed as a Streamlit application for easy interaction.
 
